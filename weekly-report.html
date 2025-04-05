@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narmada - Weekly Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Narmada</h1>
+            <h2>Weekly Report</h2>
+            <div class="header-buttons">
+                <a href="index.html" class="back-btn">Back to Expenses</a>
+            </div>
+        </header>
+        
+        <div class="weekly-report">
+            <div class="report-section">
+                <h3>Daily Chores</h3>
+                <div class="chores-grid">
+                    <div class="chore-card">
+                        <h4>Morning Routine</h4>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" id="task1" class="task-checkbox">
+                                <label for="task1">Make bed</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task2" class="task-checkbox">
+                                <label for="task2">Brush teeth</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task3" class="task-checkbox">
+                                <label for="task3">Take shower</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task4" class="task-checkbox">
+                                <label for="task4">Have breakfast</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chore-card">
+                        <h4>Work Tasks</h4>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" id="task5" class="task-checkbox">
+                                <label for="task5">Check emails</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task6" class="task-checkbox">
+                                <label for="task6">Attend meetings</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task7" class="task-checkbox">
+                                <label for="task7">Complete projects</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task8" class="task-checkbox">
+                                <label for="task8">Plan for tomorrow</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chore-card">
+                        <h4>Evening Routine</h4>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" id="task9" class="task-checkbox">
+                                <label for="task9">Prepare dinner</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task10" class="task-checkbox">
+                                <label for="task10">Clean kitchen</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task11" class="task-checkbox">
+                                <label for="task11">Do laundry</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task12" class="task-checkbox">
+                                <label for="task12">Pack lunch for tomorrow</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chore-card">
+                        <h4>Weekly Tasks</h4>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" id="task13" class="task-checkbox">
+                                <label for="task13">Grocery shopping</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task14" class="task-checkbox">
+                                <label for="task14">Pay bills</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task15" class="task-checkbox">
+                                <label for="task15">Clean house</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" id="task16" class="task-checkbox">
+                                <label for="task16">Plan weekend activities</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="task-summary">
+                    <p>Completed: <span id="completedTasksCount">0</span>/16 tasks</p>
+                    <button id="resetTasksBtn" class="reset-btn">Reset All Tasks</button>
+                </div>
+            </div>
+            
+            <div class="report-section">
+                <h3>Weekly Summary</h3>
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <h4>Expenses</h4>
+                        <p class="summary-value" id="weeklyExpenses">$0.00</p>
+                        <p class="summary-label">Total spent this week</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Tasks</h4>
+                        <p class="summary-value" id="completedTasks">0/16</p>
+                        <p class="summary-label">Completed daily tasks</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Savings</h4>
+                        <p class="summary-value" id="weeklySavings">$0.00</p>
+                        <p class="summary-label">Saved this week</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="report-section">
+                <h3>Weekly Calendar</h3>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prevWeek">&lt;</button>
+                        <h4 id="weekDisplay">Week of May 1, 2023</h4>
+                        <button id="nextWeek">&gt;</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day">
+                            <h5>Mon</h5>
+                            <div class="day-content" id="monday"></div>
+                        </div>
+                        <div class="calendar-day">
+                            <h5>Tue</h5>
+                            <div class="day-content" id="tuesday"></div>
+                        </div>
+                        <div class="calendar-day">
+                            <h5>Wed</h5>
+                            <div class="day-content" id="wednesday"></div>
+                        </div>
+                        <div class="calendar-day">
+                            <h5>Thu</h5>
+                            <div class="day-content" id="thursday"></div>
+                        </div>
+                        <div class="calendar-day">
+                            <h5>Fri</h5>
+                            <div class="day-content" id="friday"></div>
+                        </div>
+                        <div class="calendar-day">
+                            <h5>Sat</h5>
+                            <div class="day-content" id="saturday"></div>
+                        </div>
+                        <div class="calendar-day">
+                            <h5>Sun</h5>
+                            <div class="day-content" id="sunday"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="report-section">
+                <h3>Receipt Gallery</h3>
+                <div class="receipt-gallery" id="receiptGallery">
+                    <p class="no-receipts">No receipts uploaded yet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Upload Receipt</h3>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label for="receiptTitle">Title:</label>
+                    <input type="text" id="receiptTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="receiptAmount">Amount:</label>
+                    <input type="number" id="receiptAmount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="receiptDate">Date:</label>
+                    <input type="date" id="receiptDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="receiptCategory">Category:</label>
+                    <select id="receiptCategory" required>
+                        <option value="groceries">Groceries</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="receiptImage">Receipt Image:</label>
+                    <input type="file" id="receiptImage" accept="image/*" required>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+                <div class="form-group">
+                    <label for="receiptNotes">Notes:</label>
+                    <textarea id="receiptNotes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Upload Receipt</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="weekly-report.js"></script>
+</body>
+</html> 

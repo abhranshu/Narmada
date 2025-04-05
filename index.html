@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-buttons">
+                <!-- Header buttons removed -->
+            </div>
+        </header>
+        
+        <div class="landing-page" id="landingPage">
+            <h1 class="landing-title">Narmada</h1>
+            <p>Track your daily expenses with ease and stay on top of your budget.</p>
+            <button id="letsGoBtn" class="lets-go-btn">Get Started</button>
+        </div>
+        
+        <div class="main-content" id="mainContent">
+            <div class="expense-form">
+                <h3>Add New Expense</h3>
+                <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="expenseTitle">Title:</label>
+                        <input type="text" id="expenseTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseAmount">Amount:</label>
+                        <input type="number" id="expenseAmount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseCategory">Category:</label>
+                        <select id="expenseCategory" required>
+                            <option value="groceries">Groceries</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseDate">Date:</label>
+                        <input type="date" id="expenseDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseNotes">Notes:</label>
+                        <textarea id="expenseNotes" rows="3"></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit">Add Expense</button>
+                        <button type="button" id="resetBtn" class="reset-btn">Reset</button>
+                        <button type="button" id="uploadBtn" class="upload-btn">Upload Receipt</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="expense-list">
+                <h3>Expense Summary</h3>
+                <div class="expense-summary">
+                    <div class="total">
+                        <span>Total Expenses:</span>
+                        <span id="totalExpenses">$0.00</span>
+                    </div>
+                </div>
+                <div id="expensesList">
+                    <!-- Expenses will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Category Dialog -->
+    <dialog id="customCategoryDialog" class="custom-dialog">
+        <h3>Add Custom Category</h3>
+        <div class="form-group">
+            <label for="customCategory">Category Name:</label>
+            <input type="text" id="customCategory" required>
+        </div>
+        <div class="dialog-buttons">
+            <button id="cancelCustomCategory">Cancel</button>
+            <button id="saveCustomCategory">Save</button>
+        </div>
+    </dialog>
+    
+    <!-- Daily Chores Button -->
+    <button id="dailyChoresBtn" class="daily-chores-btn">Daily Chores</button>
+    
+    <!-- Daily Chores Panel -->
+    <div id="dailyChoresPanel" class="daily-chores-panel">
+        <div class="chores-header">
+            <h3>Daily Chores</h3>
+            <button id="closeChoresBtn" class="close-btn">&times;</button>
+        </div>
+        <div class="chores-list">
+            <div class="chore-item">
+                <h4>Morning Routine</h4>
+                <ul>
+                    <li>Make bed</li>
+                    <li>Brush teeth</li>
+                    <li>Take shower</li>
+                    <li>Have breakfast</li>
+                </ul>
+            </div>
+            <div class="chore-item">
+                <h4>Work Tasks</h4>
+                <ul>
+                    <li>Check emails</li>
+                    <li>Attend meetings</li>
+                    <li>Complete projects</li>
+                    <li>Plan for tomorrow</li>
+                </ul>
+            </div>
+            <div class="chore-item">
+                <h4>Evening Routine</h4>
+                <ul>
+                    <li>Prepare dinner</li>
+                    <li>Clean kitchen</li>
+                    <li>Do laundry</li>
+                    <li>Pack lunch for tomorrow</li>
+                </ul>
+            </div>
+            <div class="chore-item">
+                <h4>Weekly Tasks</h4>
+                <ul>
+                    <li>Grocery shopping</li>
+                    <li>Pay bills</li>
+                    <li>Clean house</li>
+                    <li>Plan weekend activities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Upload Receipt</h3>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label for="receiptTitle">Title:</label>
+                    <input type="text" id="receiptTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="receiptAmount">Amount:</label>
+                    <input type="number" id="receiptAmount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="receiptDate">Date:</label>
+                    <input type="date" id="receiptDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="receiptCategory">Category:</label>
+                    <select id="receiptCategory" required>
+                        <option value="groceries">Groceries</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="receiptImage">Receipt Image:</label>
+                    <input type="file" id="receiptImage" accept="image/*" required>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+                <div class="form-group">
+                    <label for="receiptNotes">Notes:</label>
+                    <textarea id="receiptNotes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Upload Receipt</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
